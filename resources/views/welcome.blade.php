@@ -15,10 +15,20 @@
         @include('partials._catmenu')
 
         <div class="vidrow">
+            @foreach($videos as $v)
+                <div class="mix video {{$v->category()->name}}">
+                    <video poster="{{asset('videos/posters/' . $v->poster)}}" 
+                        src="{{asset('video/' . $v->filename)}}" type="video/mp4" controls="true">
+                            Your browser does not support HTML5 video.
+                    </video>
+                </div>
+            @endforeach
+        </div>
+
+        <div class="vidrow">
             <div class="mix video one">
                     <video poster="img/bgvid.png" src="video/samplework.mp4" 
                         class="samplevid" type="video/mp4" controls="true">
-                            Your browser does not support HTML5 video.
                     </video>
                 </div>
                 <div class="mix video two">

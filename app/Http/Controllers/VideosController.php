@@ -25,15 +25,15 @@ class VideosController extends Controller
     	$v->category_id = $request->category_id;
 	
 		if(!File::exists(public_path() . '/videos'))
-    		File::makeDirectory(public_path() . 'videos');
+    		File::makeDirectory(public_path() . '/videos/');
 
     	if($request->poster){
     		$poster = $request->file('poster');
 
     		if(!File::exists(public_path() . '/videos/posters'))
-    			File::makeDirectory(public_path() . 'videos/posters');
+    			File::makeDirectory(public_path() . '/videos/posters');
 
-    		$posterfilename = time() . '.' . $poster.getClientOriginalExtension();
+    		$posterfilename = time() . '.' . $poster->getClientOriginalExtension();
     		$posterlocation = public_path() . '/videos/posters/' . $posterfilename;
 
     		Image::make($poster)->fit(300,300)->save($posterlocation);
