@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Филип Видео</title>
+    <script src="https://use.fontawesome.com/7e0153ed80.js"></script>
     <link rel="stylesheet" href={{asset("css/style.css")}}>
     <link href="https://fonts.googleapis.com/css?family=Lato:400,900&effect=shadow-multiple" rel="stylesheet">
     <link rel="stylesheet" href={{asset("css/bootstrap.min.css")}}>

@@ -8,17 +8,21 @@ use Session;
 
 class CategoriesController extends Controller
 {
-    //
+    
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function store(Request $request){
     	$this->validate($request, [
     		'name' => 'required|regex:/(^[A-Za-z0-9 ]+$)+/'
     	]);
 
     	$c = new Category;
-    	$c->name = $request->name;
+    	$c->name = str_replace(" ", "_",  $request->name);
     	$c->save();
     	Session::flash('success', "Category saved.");
-    	return redirect('/');
+    	return redirect('/admin');
     }
 
     public function update(Request $request, $id){

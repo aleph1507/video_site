@@ -39,7 +39,15 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form> -->
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/admin">Admin</a></li>
+                    @if(Auth::check())
+                        <li><a href="/admin">Admin</a></li>
+                        <li>
+                            <form action="/logout" method="POST">
+                                {{csrf_field()}}
+                                <input type="submit" value="Logout" class="btn-logout">
+                            </form>
+                        </li>
+                    @endif
                     <!-- <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                     <ul class="dropdown-menu">

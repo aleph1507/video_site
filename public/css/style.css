@@ -27,6 +27,8 @@ nav {
 .samplevid {
     max-width:300px;
     max-width:300px;
+    margin-top:1%;
+    margin-bottom:1%;
 }
 
 .vidscontainer {
@@ -99,6 +101,8 @@ nav {
     max-width:100%;
     animation: bgvp 1s 1s ease forwards;
     transform: rotateY(90deg);
+    max-height: 60vh;
+    overflow-y: auto;
 }
 
 .vidrow {
@@ -135,23 +139,35 @@ nav {
     border:3px solid rgba(0,150,150,0.5);
 }
 
+.hrsep-sm{
+    border:2px solid rgba(50,50,50,0.6);
+    border-radius: 50px;
+    margin-right:20em;
+}
+
 div.about-me {
-    background-color:rgba(0,150,150,0.4);
+    display:flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    /*background-color:rgba(0,150,150,0.4);*/
     max-height:50vh;
     padding-left:0;
+    padding:0;
+    margin:0;
+    text-align:center;
 }
 
 .profile-img {
-    max-height:30vh;
-    width:15vw;
-}
-
-
-
-.profile-img {
+    /*max-height:30vh;*/
+    /*width:15vw;*/
+    border:outset 5px grey;
     margin-left:0;
     padding-left:0;
-    float:left;
+    padding-right:0;
+    /*margin-top:2.35vh;*/
+    /*margin-bottom:0.85vh;*/
+    /*float:left;*/
 }
 
 
@@ -172,8 +188,10 @@ div.flex-personal-info {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    max-height:170px;
+    max-height:100px;
     align-items:center;
+    padding:0;
+    margin:0;
 }
 
 p.bio {
@@ -225,9 +243,13 @@ div.footer{
 }
 
 #accordion {
-    margin-top:10%;
+    margin-top:4%;
+    height:90%;
 }
 
+#accordion .ui-accordion-content {
+    height: 90%;
+}
 .ui-accordion-header {
     margin-top:2%;
     background: rgba(0,150,150,0.8);
@@ -261,6 +283,12 @@ div.footer{
     padding-bottom:1%;
 }
 
+.bottom-btn-sm {
+    width:50%;
+    padding:0;
+    margin:3px;
+}
+
 .bottom-btn-red {
     background: rgba(150,100,0, 0.4);
 }
@@ -272,4 +300,60 @@ div.footer{
 .label-vertical-margin {
     margin-top:10vh;
     margin-bottom:5vh;
+}
+
+.pages {
+    display: -webkit-flex;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:space-around;
+}
+
+@keyframes showvideos {
+    0% {transform: translateY(30vh);}
+    100%{transform: translateY(0);}
+}
+
+.showanim {
+    /*transform: translateY(30vh);*/
+    animation: showvideos 2s forwards;
+}
+
+.videoedit {
+    border: .2px inset black;
+    box-shadow: 10px 10px 5px #888888;
+    padding:1em;
+}
+
+.video {
+    margin:2em;
+}
+
+.btn-logout {
+    font-family: 'Lato Black', sans-serif;
+    font-weight:600;
+    width:10vw;
+    border:2px solid rgba(0,150,150,0.7);
+    border-radius:5px;
+    background:rgba(0,150,150,0.4);
+    padding:0.5vh 1vw;
+    margin-top:1vh;
+    margin-right:2vh;
+    margin-bottom: 0;
+    color:#bbbbbb;
+}
+
+.vs1em {
+    margin-top:1em;
+}
+
+.vs2em {
+    margin-top:2em;
+}
+
+.short-btn {
+    max-height:10vh;
+    padding-top:0;
+    padding-bottom: 0;
 }

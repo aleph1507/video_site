@@ -1,3 +1,28 @@
+<?php 
+    $bg_sections_style = "";
+    $fg_sections = "";
+    $header_background = "";
+    $header_color = "";
+    $mission_background = "";
+    $mission_color = "";
+    if($settings){
+        $bg_sections_style = $settings->bg_sections ? $settings->bg_sections : "";
+        $fg_sections = $settings->fg_sections ? $settings->fg_sections : "";
+        $header_background = $settings->header_background ? $settings->header_background : "";
+        $header_color = $settings->header_color ? $settings->header_color : "";
+        $mission_background = $settings->mission_background ? $settings->mission_background : "";
+        $mission_color = $settings->mission_color ? $settings->mission_color : "";
+    }
+    else{
+        $bg_sections_style = "";
+        $fg_sections = "";
+        $header_background = "";
+        $header_color = "";
+        $mission_background = "";
+        $mission_color = "";
+    }
+?>
+
 @include('partials._head')
 
 <body>
@@ -10,91 +35,24 @@
 
 
     <div class="container vidscontainer" id="work">
-        <hr class="hrsep">
+        <hr class="hrsep" style="{{ $bg_sections_style }}">
 
         @include('partials._catmenu')
 
-        <div class="vidrow">
+        <div class="vidrow animatedParent">
             @foreach($videos as $v)
-                <div class="mix video {{$v->category()->name}}">
-                    <video poster="{{asset('videos/posters/' . $v->poster)}}" 
-                        src="{{asset('video/' . $v->filename)}}" type="video/mp4" controls="true">
+                <div class="mix video {{$v->category->name}}">
+                    <video class="samplevid" poster="{{asset('videos/posters/' . $v->poster)}}" 
+                        src="{{asset('videos/' . $v->filename)}}" type="video/mp4" controls="true">
                             Your browser does not support HTML5 video.
                     </video>
                 </div>
             @endforeach
         </div>
-
-        <div class="vidrow">
-            <div class="mix video one">
-                    <video poster="img/bgvid.png" src="video/samplework.mp4" 
-                        class="samplevid" type="video/mp4" controls="true">
-                    </video>
-                </div>
-                <div class="mix video two">
-                    <video poster="img/bgvid.png" src="video/samplework.mp4" 
-                        class="samplevid" type="video/mp4" controls="true">
-                            Your browser does not support HTML5 video.
-                    </video>
-                </div>
-                <div class="mix video three">
-                    <video poster="img/bgvid.png" src="video/samplework.mp4" 
-                        class="samplevid" type="video/mp4" controls="true">
-                            Your browser does not support HTML5 video.
-                    </video>
-                </div><div class="mix video one">
-                    <video poster="img/bgvid.png" src="video/samplework.mp4" 
-                        class="samplevid" type="video/mp4" controls="true">
-                            Your browser does not support HTML5 video.
-                    </video>
-                </div>
-                <div class="mix video two">
-                    <video poster="img/bgvid.png" src="video/samplework.mp4" 
-                        class="samplevid" type="video/mp4" controls="true">
-                            Your browser does not support HTML5 video.
-                    </video>
-                </div>
-                <div class="mix video three">
-                    <video poster="img/bgvid.png" src="video/samplework.mp4" 
-                        class="samplevid" type="video/mp4" controls="true">
-                            Your browser does not support HTML5 video.
-                    </video>
-                </div><div class="mix video one">
-                    <video poster="img/bgvid.png" src="video/samplework.mp4" 
-                        class="samplevid" type="video/mp4" controls="true">
-                            Your browser does not support HTML5 video.
-                    </video>
-                </div>
-                <div class="mix video two">
-                    <video poster="img/bgvid.png" src="video/samplework.mp4" 
-                        class="samplevid" type="video/mp4" controls="true">
-                            Your browser does not support HTML5 video.
-                    </video>
-                </div>
-                <div class="mix video three">
-                    <video poster="img/bgvid.png" src="video/samplework.mp4" 
-                        class="samplevid" type="video/mp4" controls="true">
-                            Your browser does not support HTML5 video.
-                    </video>
-                </div><div class="mix video one">
-                    <video poster="img/bgvid.png" src="video/samplework.mp4" 
-                        class="samplevid" type="video/mp4" controls="true">
-                            Your browser does not support HTML5 video.
-                    </video>
-                </div>
-                <div class="mix video two">
-                    <video poster="img/bgvid.png" src="video/samplework.mp4" 
-                        class="samplevid" type="video/mp4" controls="true">
-                            Your browser does not support HTML5 video.
-                    </video>
-                </div>
-                <div class="mix video three">
-                    <video poster="img/bgvid.png" src="video/samplework.mp4" 
-                        class="samplevid" type="video/mp4" controls="true">
-                            Your browser does not support HTML5 video.
-                    </video>
-                </div>
+        <div class="pages">
+            {{$videos->links()}}
         </div>
+
     </div>
 
     @include('partials._about')

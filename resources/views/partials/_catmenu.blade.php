@@ -1,8 +1,10 @@
-<div class="menubar">
+{{--  --}}
+
+<div class="menubar" style="<?php echo $fg_sections; ?>">
     <ul class="vidcats">
-    	<li data-filter="all">All</li>
+    	<li style="<?php echo $bg_sections_style; ?>" data-filter="all">All</li>
     	@foreach($categories as $c)
-			<li data-filter=".{{$c->name}}">{{$c->name}}</li>
+			<li style="<?php echo $bg_sections_style; ?>" data-filter=".{{$c->name}}">{{str_replace("_", " ", $c->name)}}</li>
     	@endforeach
         {{-- <li data-filter="all">All</li>
         <li data-filter=".two">Two</li>

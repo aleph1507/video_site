@@ -1,24 +1,39 @@
-<div class="container about" id="about">
-        <hr class="hrsep">
-        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 about-me">
-            <img src="http://via.placeholder.com/170x170" class="img-responsive profile-img" alt="Profile">
+<div class="container">
+    <hr class="hrsep" style="<?php echo $bg_sections_style; ?>">
+</div>
+
+<div class="container about" style="<?php echo $fg_sections; ?>" id="about">
+        {{-- <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 about-me"> --}}
+    <div class="row">
+        <div class="col-lg-1 col-md-1"></div>
+        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 about-me" style="<?php echo $bg_sections_style == "" ? "background:rgba(0,150,150,0.4);" :  $bg_sections_style; ?>" >
+            @if($bio && $bio->profile_pic)
+                <?php $pp = asset('profile_picture/' . $bio->profile_pic); ?>
+            @else 
+                <?php $pp = "http://via.placeholder.com/170x170"; ?>
+            @endif
+            <img src="<?php echo $pp; ?>" class="img-responsive profile-img" alt="Profile">
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 about-me" style="<?php echo $bg_sections_style == "" ? "background:rgba(0,150,150,0.4);" :  $bg_sections_style; ?>"
             <p class="personal-info">
                 <div class="flex-personal-info">
-                    <span class="span-info name">Name: lorem ipsum dolor</span><br>
-                    <span class="span-info education">Education: lorem ipsum dolor</span><br>
-                    <span class="span-info working-since">Working since: lorem ipsum dolor</span><br>
-                    <span class="span-info fav-tech">Fav Tech: lorem ipsum dolor</span><br>
-                    <span class="span-info address">Address: lorem ipsum dolor</span><br>
+                    <span class="span-info name">{!!$bio ? ($bio->name ? $bio->name : "<i>Please add a name</i>" ) : "<i>Please add a name</i>"!!}</span><br>
+                    <span class="span-info education">{!!$bio ? ($bio->education ? $bio->education : "<i>Please add education</i>" ) : "<i>Please add education</i>"!!}</span><br>
+                    <span class="span-info working-since">{!!$bio ? ($bio->working_since ? $bio->working_since : "<i>Since when are you working?</i>" ) : "<i>Since when are you working?</i>"!!}</span><br>
+                    <span class="span-info fav-tech">{!!$bio ? ($bio->fav_tech ? $bio->fav_tech : "<i>What's your favorite tech?</i>" ) : "<i>What's your favorite tech?</i>"!!}</span><br>
+                    <span class="span-info address">{!!$bio ? ($bio->address ? $bio->address : "<i>What's your address?</i>" ) : "<i>What's your address?</i>"!!}</span><br>
                 </div>
             </p>
         </div>
+        {{-- </div> --}}
         <!-- <div class="col-lg-1 col-md-1"></div> -->
-        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 about-me bio">
+        <div class="row hidden-lg hidden-md">
+            <div class="col-sm-12 col-xs-12" style="padding-top:20vh;"></div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 about-me bio" style="<?php echo $bg_sections_style == "" ? "background:rgba(0,150,150,0.4);" :  $bg_sections_style; ?>">
             <p class="bio">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, minus dolorum, iure id sunt consequuntur repudiandae sapiente cumque debitis illum magni rerum. Placeat ipsum ex distinctio ullam iure. Ea, nam?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, delectus impedit aut exercitationem obcaecati provident ex ut maiores minus omnis optio quibusdam dolore dicta illum odio iusto tempore, blanditiis fugiat.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, ipsa obcaecati mollitia omnis est deleniti possimus quas porro. Ullam vel quos iusto, reiciendis enim libero inventore laudantium voluptate, explicabo consectetur.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat modi reiciendis, quis libero accusantium odit, animi molestias iste voluptates rem blanditiis magni quos a maxime, natus tempore delectus excepturi debitis?
+               {!!$bio ? ($bio->biography ? $bio->biography : "<i>Your bio here</i>" ) : "<i>Your bio here</i>"!!}
             </p>
         </div>
     </div>
+</div>
